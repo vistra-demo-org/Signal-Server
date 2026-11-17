@@ -121,7 +121,7 @@ public class Cdn3RemoteStorageManager implements RemoteStorageManager {
           } else if (response.statusCode() == Response.Status.CONFLICT.getStatusCode()) {
             throw ExceptionUtils.wrap(new InvalidLengthException(response.body()));
           } else if (!HttpUtils.isSuccessfulResponse(response.statusCode())) {
-            logger.info("Failed to copy via storage-manager {} {}", response.statusCode(), response.body());
+            logger.info("Failed to copy via storage-manager {}", response.statusCode());
             throw ExceptionUtils.wrap(new IOException("Failed to copy object: " + response.statusCode()));
           }
         })
